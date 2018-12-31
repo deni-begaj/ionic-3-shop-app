@@ -1,0 +1,51 @@
+<ion-header no-border>
+	<ion-toolbar>
+		<ion-buttons left>
+			<button ion-button icon-only menuToggle>
+				<ion-icon name="ios-menu-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title text-center>Cart</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list class="list-view cart-list">
+		<ion-item class="list-item" *ngFor="let item of products; let index = index">
+			<ion-thumbnail item-start class="item-image">
+				<div class="item-image" [ngStyle]="{ 'background-image': 'url(' + (item.image) + ')' }"></div>
+			</ion-thumbnail>
+			<h2>{{ item.name }}</h2>
+			<p>Lorem ipsum dolor • 2018</p>
+			<p class="product-price">
+				<span [ngClass]="{ 'product-old-price' : item.discountPrice < item.price }">${{ item.price }}</span>
+				<span *ngIf="item.discountPrice < item.price" class="product-new-price">${{ item.discountPrice }}</span>
+			</p>
+			<ion-row class="item-quantity-selector" align-items-center text-center>
+				<ion-col no-padding>
+					<button clear ion-button icon-only color="dark" small>
+						<ion-icon name="md-remove"></ion-icon>
+					</button>
+				</ion-col>
+				<ion-col no-padding>
+					1
+				</ion-col>
+				<ion-col no-padding>
+					<button clear ion-button icon-only color="dark" small>
+						<ion-icon name="md-add"></ion-icon>
+					</button>
+				</ion-col>
+			</ion-row>
+		</ion-item>
+	</ion-list>
+
+	<div class="button-container">
+		<button ion-button block>Continue Order</button>
+	</div>
+
+</ion-content>

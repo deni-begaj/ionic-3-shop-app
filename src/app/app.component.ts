@@ -1,89 +1,75 @@
 import { Component, ViewChild } from '@angular/core';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { FirstRunPage } from '../pages';
-import { Settings } from '../providers';
+import { HomePage } from '../pages/home/home';
+import { CartPage } from '../pages/cart/cart';
+import { DeliveryPage } from '../pages/delivery/delivery';
+import { ProductDetailsPage } from '../pages/product-details/product-details';
+import { CardPage } from '../pages/card/card';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+import { CategoryList1Page } from '../pages/category-list-1/category-list-1';
+import { OrdersPage } from '../pages/orders/orders';
+import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { WishlistPage } from '../pages/wishlist/wishlist';
+import { CommentsPage } from '../pages/comments/comments';
+import { DataService } from '../data.service';
+import { CategoryList2Page } from '../pages/category-list-2/category-list-2';
+import { ProductListPage } from '../pages/product-list/product-list';
+import { SearchPage } from '../pages/search/search';
 
 @Component({
-  template: `<ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Pages</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content>
-      <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
-        </button>
-      </ion-list>
-    </ion-content>
-
-  </ion-menu>
-  <ion-nav #content [root]="rootPage"></ion-nav>`
+	templateUrl: 'app.html',
+	providers: [DataService]
 })
 export class MyApp {
-  rootPage = FirstRunPage;
+	@ViewChild(Nav) nav: Nav;
 
-  @ViewChild(Nav) nav: Nav;
+	rootPage: any = HomePage;
 
-  pages: any[] = [
-    { title: 'Tutorial', component: 'TutorialPage' },
-    { title: 'Welcome', component: 'WelcomePage' },
-    { title: 'Tabs', component: 'TabsPage' },
-    { title: 'Cards', component: 'CardsPage' },
-    { title: 'Content', component: 'ContentPage' },
-    { title: 'Login', component: 'LoginPage' },
-    { title: 'Signup', component: 'SignupPage' },
-    { title: 'Master Detail', component: 'ListMasterPage' },
-    { title: 'Menu', component: 'MenuPage' },
-    { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Search', component: 'SearchPage' }
-  ]
+	pages: Array<{ title: string, component: any, icon: string }>;
 
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-    this.initTranslate();
-  }
+	constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+		this.initializeApp();
 
-  initTranslate() {
-    // Set the default language for translation strings, and the current language.
-    this.translate.setDefaultLang('en');
-    const browserLang = this.translate.getBrowserLang();
+		// used for an example of ngFor and navigation
+		this.pages = [
+			{ title: 'Home', component: HomePage, icon: 'ios-home-outline' },
+			{ title: 'Search', component: SearchPage, icon: 'ios-search-outline' },
+			{ title: 'Product List View', component: ProductListPage, icon: 'ios-list-outline' },
+			{ title: 'Product Details', component: ProductDetailsPage, icon: 'ios-create-outline' },
+			{ title: 'Categories Grid View', component: CategoryList1Page, icon: 'ios-grid-outline' },
+			{ title: 'Categories List View', component: CategoryList2Page, icon: 'ios-list-outline' },
+			{ title: 'Cart', component: CartPage, icon: 'ios-cart-outline' },
+			{ title: 'Wishlist', component: WishlistPage, icon: 'ios-heart-outline' },
+			{ title: 'Card', component: CardPage, icon: 'ios-card-outline' },
+			{ title: 'Delivery', component: DeliveryPage, icon: 'ios-cube-outline' },
+			{ title: 'Orders', component: OrdersPage, icon: 'ios-pizza-outline' },
+			{ title: 'Comments', component: CommentsPage, icon: 'ios-chatbubbles-outline' },
+			{ title: 'Login', component: LoginPage, icon: 'ios-log-in-outline' },
+			{ title: 'Signup', component: SignupPage, icon: 'ios-person-add-outline' },
+			{ title: 'Forgot Password', component: ForgotPasswordPage, icon: 'ios-key-outline' },
+			{ title: 'Reset Password', component: ResetPasswordPage, icon: 'ios-refresh-outline' },
+		];
 
-    if (browserLang) {
-      if (browserLang === 'zh') {
-        const browserCultureLang = this.translate.getBrowserCultureLang();
+	}
 
-        if (browserCultureLang.match(/-CN|CHS|Hans/i)) {
-          this.translate.use('zh-cmn-Hans');
-        } else if (browserCultureLang.match(/-TW|CHT|Hant/i)) {
-          this.translate.use('zh-cmn-Hant');
-        }
-      } else {
-        this.translate.use(this.translate.getBrowserLang());
-      }
-    } else {
-      this.translate.use('en'); // Set your language here
-    }
+	initializeApp() {
+		this.platform.ready().then(() => {
+			// Okay, so the platform is ready and our plugins are available.
+			// Here you can do any higher level native things you might need.
+			this.statusBar.styleDefault();
+			this.splashScreen.hide();
+		});
+	}
 
-    this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
-      this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
-    });
-  }
-
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
-  }
+	openPage(page) {
+		// Reset the content nav to have just this page
+		// we wouldn't want the back button to show in this scenario
+		this.nav.push(page.component);
+		// this.nav.setRoot(page.component);
+	}
 }

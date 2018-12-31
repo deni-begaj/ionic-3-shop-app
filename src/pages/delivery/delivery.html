@@ -1,0 +1,70 @@
+<ion-header no-border>
+	<ion-toolbar>
+		<ion-buttons left>
+			<button ion-button icon-only menuToggle>
+				<ion-icon name="ios-menu-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title text-center>Delivery</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<ion-item-group class="address-list">
+		<ion-item-divider>Shipping Address</ion-item-divider>
+
+		<ion-item text-wrap class="list-item">
+			<ion-icon name="ios-checkmark-circle-outline" color="primary" item-start></ion-icon>
+			<h2>Lorem ipsum dolor</h2>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+			<p>+1 234 456 789</p>
+		</ion-item>
+
+		<ion-item text-wrap class="list-item">
+			<ion-icon name="ios-checkmark-circle-outline" item-start color="light"></ion-icon>
+			<h2>Lorem ipsum dolor</h2>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+			<p>+1 234 456 789</p>
+		</ion-item>
+
+		<ion-item class="list-item item-add-address">
+			<ion-icon name="ios-add-outline" color="primary" item-start></ion-icon>
+			<ion-note color="primary">Add a new address</ion-note>
+		</ion-item>
+	</ion-item-group>
+
+	<ion-item-group class="summary-list">
+		<ion-item-divider>Summary</ion-item-divider>
+
+		<ion-item class="list-item">
+			Shipping Method
+			<ion-note item-end>EMS</ion-note>
+		</ion-item>
+
+		<ion-item class="list-item">
+			Subtotal
+			<ion-note item-end>$2190</ion-note>
+		</ion-item>
+
+		<ion-item class="list-item">
+			Shipping Cost
+			<ion-note item-end>$14</ion-note>
+		</ion-item>
+
+		<ion-item class="list-item">
+			Total
+			<ion-note item-end>$2204</ion-note>
+		</ion-item>
+	</ion-item-group>
+
+	<div class="button-container">
+		<button ion-button block>Add to cart</button>
+	</div>
+
+</ion-content>

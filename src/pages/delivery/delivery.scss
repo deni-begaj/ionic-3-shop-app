@@ -1,0 +1,56 @@
+page-delivery {
+
+    .address-list {
+
+        .list-item {
+
+            ion-icon {
+                font-size: 40px;
+                width: 40px;
+            }
+
+            .item-inner {
+                 
+                ion-label {
+                    margin-right: 0;
+                }
+            }
+
+            &.item-block {
+                align-items: start;
+
+                &.item-add-address:last-child {
+                    align-items: center;
+                }
+            }
+            
+            &.item-md {
+
+                ion-avatar[item-start] {
+                    margin-top: 16px;
+                }
+            }
+
+        }
+    }
+
+    .summary-list {
+
+        .list-item {
+
+            .item-inner {
+
+                ion-label {
+                    color: $light-grey;
+                }
+                ion-note {
+                    color: color($colors, dark);
+                }
+            }
+        }
+    }
+
+    .button-container {
+        padding: 30px 24px;
+    }
+}

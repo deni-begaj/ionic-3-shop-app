@@ -1,0 +1,52 @@
+<ion-header no-border>
+	<ion-toolbar>
+		<ion-buttons left>
+			<button ion-button icon-only menuToggle>
+				<ion-icon name="ios-menu-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title text-center>Card</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	
+	<div class="total-price-container">
+		<div class="total-price-value">$340</div>
+		<div class="total-price-title">Total price</div>
+	</div>
+
+	<ion-list class="page-form">
+
+		<ion-item class="form-item">
+			<ion-label stacked class="item-label">Card number</ion-label>
+			<ion-input type="text" value="4500600000000061"></ion-input>
+		</ion-item>
+
+		<ion-item class="form-item">
+			<ion-label stacked class="item-label">Expiry month</ion-label>
+			<ion-input type="text" value="01"></ion-input>
+		</ion-item>
+
+		<ion-item class="form-item">
+			<ion-label stacked class="item-label">Expiry year</ion-label>
+			<ion-input type="text" value="12"></ion-input>
+		</ion-item>
+
+		<ion-item class="form-item">
+			<ion-label stacked class="item-label">CVV</ion-label>
+			<ion-input type="text" value="123"></ion-input>
+		</ion-item>
+
+	</ion-list>
+
+	<div class="button-container">
+		<button ion-button block>Continue Order</button>
+	</div>
+
+</ion-content>

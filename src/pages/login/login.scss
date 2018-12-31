@@ -1,2 +1,48 @@
 page-login {
+
+    ion-content {
+
+        .scroll-content {
+            padding: 24px;
+        }
+
+        .profile-placeholder {
+            ion-icon {
+                font-size: 120px;
+            }
+        }
+    
+        .login-form {
+    
+            .form-item {
+    
+                .item-inner {
+                    padding-right: 0;
+                }
+
+                .input-note {
+                    font-size: 13px;
+                    margin-bottom: -16px !important;
+                    color: $light-grey;
+                }
+            }
+        }
+    
+        .button-container {
+            margin-top: 40px;
+        }
+    
+        .account-text {
+            font-size: 10px;
+            margin-top: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            color: $light-grey;
+    
+            .signup-button {
+                color: color($colors, dark);
+                margin-left: 8px;
+            }
+        }
+    }
 }

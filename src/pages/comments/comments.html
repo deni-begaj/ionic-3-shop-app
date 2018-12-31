@@ -1,0 +1,38 @@
+<ion-header no-border>
+	<ion-toolbar>
+		<ion-buttons left>
+			<button ion-button icon-only menuToggle>
+				<ion-icon name="ios-menu-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title text-center>Comments</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list class="comment-list">
+		<ion-item text-wrap *ngFor="let item of [1,2,3,4,5,6]; let index = index">
+			<ion-avatar item-start>
+				<img src="assets/img/bagpack1.png">
+			</ion-avatar>
+			<h2>Lorem ipsum {{index + 1}}</h2>
+			<p>{{ index + 1}} hours ago</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates vitae ipsa perspiciatis, soluta placeat nobis quidem
+				delectus odit recusandae doloribus debitis officiis! Hic veritatis nihil quaerat excepturi magnam dolores iusto!</p>
+		</ion-item>
+	</ion-list>
+
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<ion-item class="write-comment-input-container">
+			<ion-input type="text" placeholder="Write your comment..."></ion-input>
+			<ion-icon name="send" color="primary" item-end></ion-icon>
+		</ion-item>
+	</ion-toolbar>
+</ion-footer>

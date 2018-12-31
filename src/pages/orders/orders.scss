@@ -1,0 +1,46 @@
+page-orders {
+
+    .item-divider-md {
+        border-left: 5px solid $ec-border-color;
+    }
+
+    .order-list {
+
+        .order-item {
+            padding: 24px 24px 0;
+            border-left: 5px solid transparent;
+
+            .item-inner {
+                padding-bottom: 24px;
+
+                .label-md {
+                    margin: 0;
+
+                    p {
+                        margin: 0;
+
+                        &.order-number {
+                            font-size: 15px;
+                        }
+                        &.order-description {
+                            margin-top: 10px;
+                            font-size: 12px;
+                            text-transform: capitalize;
+                            color: $light-grey;
+                        }
+                    }
+                }
+            }
+
+            &.order-processed {
+                border-left: 5px solid #8C88FF;
+            }
+            &.order-delivered {
+                border-left: 5px solid color($colors, primary);
+            }
+            &.order-pending {
+                border-left: 5px solid #FCAB53;
+            }
+        }
+    }
+}

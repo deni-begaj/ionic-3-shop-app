@@ -1,0 +1,29 @@
+page-card {
+
+    .total-price-container {
+        width: 100%;
+        height: 220px;
+        background: #F8F8F9;
+        text-align: center;
+
+        .total-price-value {
+            padding-top: 75px;
+            font-size: 30px;
+        }
+
+        .total-price-title {
+            margin-top: 15px;
+            font-size: 11px;
+            color: $light-grey;
+            text-transform: uppercase;
+        }
+    }
+
+    .page-form {
+        padding: 0 24px;
+    }
+
+    .button-container {
+        margin: 40px 24px;
+    }
+}

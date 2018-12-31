@@ -1,0 +1,31 @@
+<ion-header no-border>
+	<ion-toolbar>
+		<ion-buttons left>
+			<button ion-button icon-only menuToggle>
+				<ion-icon name="ios-menu-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title text-center>Product List</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list class="list-view product-list-view">
+		<ion-item class="list-item" *ngFor="let item of products; let index = index">
+			<ion-thumbnail item-start class="item-image">
+				<div class="item-image" [ngStyle]="{ 'background-image': 'url(' + (item.image) + ')' }"></div>
+			</ion-thumbnail>
+			<h2>{{ item.name }}</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laudantium facilis aspernatur et corrupti, iusto, itaque dolore dicta incidunt odit ducimus dolor, illum mollitia. Architecto recusandae tempore aperiam accusantium velit.</p>
+			<p class="product-price">
+				<span [ngClass]="{ 'product-old-price' : item.discountPrice < item.price }">${{ item.price }}</span>
+				<span *ngIf="item.discountPrice < item.price" class="product-new-price">${{ item.discountPrice }}</span>
+			</p>
+		</ion-item>
+	</ion-list>
+</ion-content>

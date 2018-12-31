@@ -1,0 +1,23 @@
+<ion-menu [content]="content">
+	<ion-content>
+		<ion-list class="menu-list">
+			<ion-item class="menu-header">
+				<ion-avatar item-start class="header-image">
+					<img src="assets/img/jacket2.png">
+					<!-- <ion-icon name="ios-person-outline"></ion-icon> -->
+				</ion-avatar>
+				<h2 class="menu-title">John Doe</h2>
+				<p>test@example.com</p>
+			</ion-item>
+			<button menuClose ion-item class="menu-item" *ngFor="let p of pages; let index = index" [ngClass]="{'active': index == 0}"
+			 (click)="openPage(p)">
+				<ion-icon item-start name="{{p.icon}}" class="item-icon"></ion-icon>
+				<p class="item-title">{{p.title}}</p>
+				<ion-note *ngIf="index == 0 || index == 6" item-end>{{ index + 1 }}</ion-note>
+			</button>
+		</ion-list>
+	</ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

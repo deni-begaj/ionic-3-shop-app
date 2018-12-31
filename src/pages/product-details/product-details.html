@@ -1,0 +1,118 @@
+<ion-header no-border>
+	<ion-toolbar>
+		<ion-buttons left>
+			<button ion-button icon-only menuToggle>
+				<ion-icon name="ios-menu-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title text-center>Green Jacket</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<ion-slides pager class="product-image-container">
+		<ion-slide *ngFor="let item of products">
+			<div class="product-image" [ngStyle]="{ 'background-image': 'url(' + (item.image) + ')' }"></div>
+		</ion-slide>
+	</ion-slides>
+
+	<div class="page-header-container">
+		<ion-fab right>
+			<button ion-fab class="choose-product-options-button" (click)="openMenu()">
+				<ion-icon name="ios-more-outline"></ion-icon>
+			</button>
+		</ion-fab>
+
+		<ion-list-header>Green Jacket</ion-list-header>
+	</div>
+
+	<div class="product-details">
+		<div class="product-price">$123</div>
+		<div class="product-description">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate corrupti ea at debitis molestias velit minima quae nostrum repudiandae. Dolorem, veritatis numquam molestias sapiente cum atque. Ipsam provident mollitia eveniet.
+		</div>
+		<div class="product-label">Size</div>
+		<div class="product-description">37mm diameter, 9.5mm thick</div>
+		<div class="product-label">Architecture</div>
+		<div class="product-description">M-Line lugless case with pressed bezel and screwed in case back</div>
+		<div class="product-label">Lorem ipsum</div>
+		<div class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+		<div class="product-label">Lorem ipsum</div>
+		<div class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+		<div class="product-label">Lorem ipsum</div>
+		<div class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+		<div class="product-label">Lorem ipsum</div>
+		<div class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+		<div class="product-label">Lorem ipsum</div>
+		<div class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+		<button ion-button clear class="show-more-button">Show more...</button>
+	</div>
+
+	<ion-list radio-group class="product-attribute-list">
+		<ion-list-header>Select Size</ion-list-header>
+
+		<ion-item class="product-attribute">
+			<ion-label>Small</ion-label>
+			<ion-radio color="primary" checked="true" item-start></ion-radio>
+		</ion-item>
+		<ion-item class="product-attribute">
+			<ion-label>Medium</ion-label>
+			<ion-radio color="primary" item-start></ion-radio>
+		</ion-item>
+		<ion-item class="product-attribute">
+			<ion-label>Large</ion-label>
+			<ion-radio color="primary" item-start></ion-radio>
+		</ion-item>
+
+	</ion-list>
+
+	<ion-list class="product-attribute-list">
+		<ion-list-header>Variation</ion-list-header>
+
+		<ion-item class="product-attribute">
+			<ion-label>Light</ion-label>
+			<ion-checkbox color="primary" checked="true"></ion-checkbox>
+		</ion-item>
+		<ion-item class="product-attribute">
+			<ion-label>Medium</ion-label>
+			<ion-checkbox color="primary"></ion-checkbox>
+		</ion-item>
+		<ion-item class="product-attribute">
+			<ion-label>Dark</ion-label>
+			<ion-checkbox color="primary" checked="true"></ion-checkbox>
+		</ion-item>
+
+	</ion-list>
+
+	<div class="button-container">
+		<button ion-button block>Add to cart</button>
+	</div>
+
+	<ion-list-header>You may like</ion-list-header>
+
+	<ion-grid class="item-grid-view product-grid-view">
+		<ion-row>
+			<ion-col col-6 *ngFor="let item of products; let index = index">
+				<ion-card class="item">
+					<div class="item-image" [ngStyle]="{ 'background-image': 'url(' + (item.image) + ')' }"></div>
+					<ion-card-content>
+						<ion-card-title>
+							{{ item.name }}
+						</ion-card-title>
+						<div class="product-price">
+							<span [ngClass]="{ 'product-old-price' : item.discountPrice < item.price }">${{ item.price }}</span>
+							<span *ngIf="item.discountPrice < item.price" class="product-new-price">${{ item.discountPrice }}</span>
+						</div>
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+</ion-content>

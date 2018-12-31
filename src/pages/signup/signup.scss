@@ -1,3 +1,42 @@
 page-signup {
 
+    ion-content {
+
+        .scroll-content {
+            padding: 24px;
+        }
+
+        .profile-placeholder {
+            ion-icon {
+                font-size: 120px;
+            }
+        }
+
+        .signup-form {
+
+            .form-item {
+                
+                .input-note {
+                    margin-bottom: -16px !important;
+                }
+            }
+        }
+
+        .button-container {
+            margin-top: 32.5px;
+        }
+
+        .account-text {
+            font-size: 10px;
+            margin-top: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            color: $light-grey;
+
+            .signin-button {
+                color: color($colors, dark);
+                margin-left: 8px;
+            }
+        }
+    }
 }
