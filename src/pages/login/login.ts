@@ -18,7 +18,9 @@ export class LoginPage {
 	password: string;
 
 	constructor(private auth: Auth, private toastCtrl: ToastController, private nav: NavController, private ls:Ls, private events: Events) {
-
+		if(this.ls.isLoggedIn()) { 
+			this.goTo(HomePage);
+		}
 	}
 
 	presentToast(str :string, isSuccess: boolean) {
