@@ -3,7 +3,7 @@
 		<ion-list class="menu-list">
 			<ion-item class="menu-header" *ngIf="user!=null">
 				<ion-avatar item-start class="header-image">
-					<img src="assets/img/avatar.png">
+					<img [src]="user.profilePhoto">
 					<!-- <ion-icon name="ios-person-outline"></ion-icon> -->
 				</ion-avatar>
 				<h2 class="menu-title">{{user.fullname}}</h2>
