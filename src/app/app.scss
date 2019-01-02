@@ -235,3 +235,15 @@ ion-searchbar {
         color: $light-grey;
     }
 }
+
+.toast-success {
+    .toast-wrapper {
+        background-color:#32db64;
+    } 
+}
+
+.toast-danger { 
+    .toast-wrapper {
+        background-color:#FF5722;
+    }
+}

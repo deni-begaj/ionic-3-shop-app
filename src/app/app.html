@@ -1,13 +1,21 @@
 <ion-menu [content]="content">
 	<ion-content>
 		<ion-list class="menu-list">
-			<ion-item class="menu-header">
+			<ion-item class="menu-header" *ngIf="user!=null">
 				<ion-avatar item-start class="header-image">
-					<img src="assets/img/jacket2.png">
+					<img src="assets/img/avatar.png">
 					<!-- <ion-icon name="ios-person-outline"></ion-icon> -->
 				</ion-avatar>
-				<h2 class="menu-title">John Doe</h2>
-				<p>test@example.com</p>
+				<h2 class="menu-title">{{user.fullname}}</h2>
+				<p>{{user.email}}</p>
+			</ion-item>
+			<ion-item class="menu-header" *ngIf="user==null">
+				<ion-avatar item-start class="header-image">
+					<img src="assets/img/avatar.png">
+					<!-- <ion-icon name="ios-person-outline"></ion-icon> -->
+				</ion-avatar>
+				<h2 class="menu-title">Login</h2>
+				<p>Now</p>
 			</ion-item>
 			<button menuClose ion-item class="menu-item" *ngFor="let p of pages; let index = index" [ngClass]="{'active': index == 0}"
 			 (click)="openPage(p)">

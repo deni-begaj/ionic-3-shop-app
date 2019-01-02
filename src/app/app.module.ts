@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
@@ -22,6 +23,9 @@ import { CommentsPage } from '../pages/comments/comments';
 import { ProductListPage } from '../pages/product-list/product-list';
 import { CategoryList2Page } from '../pages/category-list-2/category-list-2';
 import { SearchPage } from '../pages/search/search';
+import { Ls } from '../providers/ls/ls';
+import { Auth } from '../providers/auth/auth';
+import { Api } from '../providers/api/api';
 
 @NgModule({
 	declarations: [
@@ -45,6 +49,7 @@ import { SearchPage } from '../pages/search/search';
 	],
 	imports: [
 		BrowserModule,
+		HttpModule,
 		IonicModule.forRoot(MyApp, { mode: 'md' }, {
 			links: [
 				{ component: HomePage, name: 'home-page' },
@@ -89,7 +94,10 @@ import { SearchPage } from '../pages/search/search';
 	providers: [
 		StatusBar,
 		SplashScreen,
-		{ provide: ErrorHandler, useClass: IonicErrorHandler }
+		{ provide: ErrorHandler, useClass: IonicErrorHandler },
+		Ls,
+		Auth,
+		Api
 	]
 })
 export class AppModule { }

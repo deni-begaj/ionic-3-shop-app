@@ -17,17 +17,17 @@
 	<ion-list class="page-form login-form">
 		<ion-item class="form-item">
 			<ion-label stacked class="item-label">Username</ion-label>
-			<ion-input type="text" value="admin-account"></ion-input>
+			<ion-input type="text" [(ngModel)]="username"></ion-input>
 		</ion-item>
 
 		<ion-item class="form-item">
 			<ion-label stacked class="item-label">Password</ion-label>
-			<ion-input type="password" value="admin"></ion-input>
+			<ion-input type="password" [(ngModel)]="password"></ion-input>
 			<ion-note item-end class="input-note">Forgot Password</ion-note>
 		</ion-item>
 	</ion-list>
 
-	<div class="button-container">
+	<div class="button-container" (click)="login()">
 		<button ion-button block>Sign In</button>
 	</div>
 
